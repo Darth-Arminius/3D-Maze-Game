@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GameConfiguration xmlns="clr-namespace:CoolEngine.Xaml;assembly=CoolEngine" 
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:o="clr-namespace:OpenGL_Game.Objects;assembly=CoolEngine"
+                   xmlns:c="clr-namespace:OpenGL_Game.Components;assembly=CoolEngine"
+                   xmlns:a="clr-namespace:OpenGL_Game.Animations">
+    <GameConfiguration.Entities>
+        <!-- HUD -->
+        <o:Entity x:Name="Minimap">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/map.png" />
+            <c:ComponentUI Position="0.7,0.7" Scale="0.1" />
+            <c:ComponentRotation />
+        </o:Entity>
+        <o:Entity x:Name="Healthbar0">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/health.png" />
+            <c:ComponentUI Position="-0.9,-0.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>
+        <o:Entity x:Name="Healthbar1">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/health.png" />
+            <c:ComponentUI Position="-0.7,-0.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>
+        <o:Entity x:Name="Healthbar2">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/health.png" />
+            <c:ComponentUI Position="-0.5,-0.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>
+		<o:Entity x:Name="KeyUI0">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/keyUI.png" />
+            <c:ComponentUI Position="0.5,-2.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>
+		<o:Entity x:Name="KeyUI1">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/keyUI.png" />
+            <c:ComponentUI Position="0.7,-2.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>
+		<o:Entity x:Name="KeyUI2">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/keyUI.png" />
+            <c:ComponentUI Position="0.9,-2.8" Scale="0.03" />
+            <c:ComponentRotation />
+        </o:Entity>		
+        <o:Entity x:Name="PlayerBlip">
+            <c:ComponentGeometry Geometry="Geometry/BlipGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/halo.jpg" />
+            <c:ComponentUI Position="0,0" Scale="0.04" />
+            <c:ComponentRotation />
+        </o:Entity>
+        <o:Entity x:Name="DroneBlip">
+            <c:ComponentGeometry Geometry="Geometry/BlipGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/halo.jpg" />
+            <c:ComponentUI Position="0,0" Scale="0.04" />
+            <c:ComponentRotation />
+        </o:Entity>
+        
+        <!-- Environment -->
+        <o:Entity x:Name="Skybox">
+            <c:ComponentGeometry Geometry="Geometry/SBCubeGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/Skybox2.png" />
+            <c:ComponentPosition Position="0,0,0" />
+            <c:ComponentTranslation Translation="0,0,0" />
+            <c:ComponentRotation />
+        </o:Entity>
+        <!-- Floor and walls are generated in a procedural way (a lot of repetition) -->
+        
+        <!-- Active objects -->
+        <o:Entity x:Name="Key1">
+            <c:ComponentGeometry Geometry="Geometry/CubeGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/Key.jpg" />
+            <c:ComponentPosition Position="1.0,-0.5,-16.0" />
+            <c:ComponentTranslation Translation="1.0,-0.5,-16.0" />
+            <c:ComponentRotation />
+            <c:ComponentAudio Sound="Audio/pickup.wav" IsLoop="False" />
+        </o:Entity>
+        <o:Entity x:Name="Key2">
+            <c:ComponentGeometry Geometry="Geometry/CubeGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/Key.jpg" />
+            <c:ComponentPosition Position="-22.0,-0.5,-16.0" />
+            <c:ComponentTranslation Translation="-22.0,-0.5,-16.0" />
+            <c:ComponentRotation />
+            <c:ComponentAudio Sound="Audio/pickup.wav" IsLoop="False" />
+        </o:Entity>
+        <o:Entity x:Name="Key3">
+            <c:ComponentGeometry Geometry="Geometry/CubeGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/Key.jpg" />
+            <c:ComponentPosition Position="-22.0,-0.5,4.0" />
+            <c:ComponentTranslation Translation="-22.0,-0.5,4.0" />
+            <c:ComponentRotation />
+            <c:ComponentAudio Sound="Audio/pickup.wav" IsLoop="False" />
+        </o:Entity>
+        <o:Entity x:Name="Portal">
+            <c:ComponentGeometry Geometry="Geometry/MapGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/portal.jpg" />
+            <c:ComponentPosition Position="0.0,-0.5,4.0" />
+            <c:ComponentTranslation Translation="0.0,-0.5,4.0" />
+            <c:ComponentRotation />
+            <c:ComponentAudio Sound="Audio/buzz.wav" IsLoop="True" />
+        </o:Entity>
+        <o:Entity x:Name="Drone">
+            <c:ComponentGeometry Geometry="Geometry/OctahedronGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/Drone.jpg" />
+            <c:ComponentPosition Position="-40.0,0.0,-32.5" />
+            <c:ComponentTranslation Translation="0,0,0" />
+            <c:ComponentRotation />
+            <c:ComponentVelocity Velocity="10,0,0" />
+            <c:ComponentAudio Sound="Audio/blaster.wav" IsLoop="False" />
+        </o:Entity>
+        <!-- The bullet of the drone will be created dynamically -->
+        
+        <!-- Decorations -->
+        <o:Entity x:Name="BouncingOctahedron">
+            <c:ComponentGeometry Geometry="Geometry/OctahedronGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/t.jpg" />
+            <c:ComponentPosition Position="-40.0,-2.0,-32.5" />
+            <c:ComponentTranslation Translation="0,0,0" />
+            <c:ComponentRotation />
+            <c:ComponentAnimation Animation="{a:BouncingAnimation MaxHeight=1.5, Duration=1.5}" />
+        </o:Entity>
+        <o:Entity x:Name="RollingCube">
+            <c:ComponentGeometry Geometry="Geometry/CubeGeometry.txt" />
+            <c:ComponentTexture Texture="Textures/halo.jpg" />
+            <c:ComponentPosition Position="-44.5,-2.0,3.0" />
+            <c:ComponentTranslation Translation="0,0,0" />
+            <c:ComponentRotation />
+            <c:ComponentAnimation Animation="{a:RollingCubeAnimation RollsCount=2, RollDuration=0.5}" />
+        </o:Entity>
+    </GameConfiguration.Entities>
+</GameConfiguration>
